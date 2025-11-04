@@ -5,7 +5,7 @@ import "spider/internal/app/types/types_common"
 // UserInfoReq 抖音用户信息请求参数
 type UserInfoReq struct {
 	types_common.BaseListParam
-	SecUserId string `form:"sec_user_id" binding:"required"`
+	SecId string `form:"secId" binding:"required"`
 }
 
 func (r *UserInfoReq) Adjust() {}
@@ -21,7 +21,7 @@ func (r *UserSearchReq) Adjust() {}
 // UserVideoReq 抖音用户视频列表请求参数
 type UserVideoReq struct {
 	types_common.BaseListParam
-	SecId string `form:"sec_id" binding:"required"`
+	SecId string `form:"secId" binding:"required"`
 }
 
 func (r *UserVideoReq) Adjust() {}

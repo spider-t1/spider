@@ -47,8 +47,8 @@ func CommentListHandler(c *gin.Context) {
 // @Description 通过 item_id 与 comment_id 获取评论回复列表
 // @Tags douyin
 // @Produce json
-// @Param item_id query string true "作品ID"
-// @Param comment_id query string true "评论ID"
+// @Param itemId query string true "作品ID"
+// @Param commentId query string true "评论ID"
 // @Param cursor query string false "分页游标，默认0"
 // @Param count query string false "每页数量，默认10"
 // @Success 200 {object} map[string]interface{} "返回原始JSON"
@@ -66,7 +66,7 @@ func CommentReplyListHandler(c *gin.Context) {
 		response.HandleDefault(c, response.WithData(res))(&err, recover())
 	}()
 
-	if err = c.ShouldBindJSON(&req); err != nil {
+	if err = c.ShouldBind(&req); err != nil {
 		return
 	}
 	req.Adjust()

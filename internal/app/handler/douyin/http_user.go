@@ -9,11 +9,11 @@ import (
 
 // UserInfoHandler 获取抖音用户信息
 // @Summary 获取抖音用户信息
-// @Description 通过 sec_user_id 获取用户资料
+// @Description 通过 secId 获取用户资料
 // @Tags douyin
 // @Produce json
-// @Param sec_user_id query string true "用户sec_id"
-// @Success 200 {object} map[string]interface{} "返回JSON结构"
+// @Param secId query string true "用户sec_id"
+// @Success 200 {object} types_douyin.DouyinUserInfoResp "返回JSON结构"
 // @Router /api/douyin/user/info [get]
 func UserInfoHandler(c *gin.Context) {
 
@@ -28,13 +28,13 @@ func UserInfoHandler(c *gin.Context) {
 		response.HandleDefault(c, response.WithData(res))(&err, recover())
 	}()
 
-	if err = c.ShouldBindJSON(&req); err != nil {
+	if err = c.ShouldBind(&req); err != nil {
 		return
 	}
 	req.Adjust()
 
 	client := douyin2.NewDouyinClient("")
-	res, err = client.DouyinUserInfo(ctx, req.SecUserId)
+	res, err = client.DouyinUserInfo(ctx, req.SecId)
 	if err != nil {
 		return
 	}
@@ -46,7 +46,7 @@ func UserInfoHandler(c *gin.Context) {
 // @Tags douyin
 // @Produce json
 // @Param keyword query string true "搜索关键词"
-// @Success 200 {object} map[string]interface{} "返回JSON结构"
+// @Success 200 {object} types_douyin.DouyinSearchResp "返回JSON结构"
 // @Router /api/douyin/user/search [get]
 func UserSearchHandler(c *gin.Context) {
 
@@ -61,7 +61,7 @@ func UserSearchHandler(c *gin.Context) {
 		response.HandleDefault(c, response.WithData(res))(&err, recover())
 	}()
 
-	if err = c.ShouldBindJSON(&req); err != nil {
+	if err = c.ShouldBind(&req); err != nil {
 		return
 	}
 
@@ -76,11 +76,11 @@ func UserSearchHandler(c *gin.Context) {
 
 // UserVideoHandler 获取抖音用户作品列表
 // @Summary 获取抖音用户作品列表
-// @Description 通过 sec_id 获取用户作品列表
+// @Description 通过 secId 获取用户作品列表
 // @Tags douyin
 // @Produce json
-// @Param sec_id query string true "用户sec_id"
-// @Success 200 {object} map[string]interface{} "返回原始JSON"
+// @Param secId query string true "用户secId"
+// @Success 200 {object} types_douyin.DyOneVideoInfo "返回原始JSON"
 // @Router /api/douyin/user/video [get]
 func UserVideoHandler(c *gin.Context) {
 
@@ -95,7 +95,7 @@ func UserVideoHandler(c *gin.Context) {
 		response.HandleDefault(c, response.WithData(res))(&err, recover())
 	}()
 
-	if err = c.ShouldBindJSON(&req); err != nil {
+	if err = c.ShouldBind(&req); err != nil {
 		return
 	}
 	req.Adjust()

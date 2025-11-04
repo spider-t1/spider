@@ -10,6 +10,7 @@ import (
 	"net/url"
 	"spider/internal/app/types/types_douyin"
 	"spider/pkg/logger"
+	"spider/pkg/utils"
 )
 
 // DouyinUserVideo 根据 douyin_user_video.txt 的 curl 请求实现 GET 接口访问
@@ -148,6 +149,6 @@ func (c *DouyinClient) DouyinUserVideo(ctx context.Context, secId string) (*type
 
 func (c *DouyinClient) generateABogusV2(pa, da string) (string, error) {
 	// 直接调用Go版本的Enc函数
-	result := Enc(pa, da, c.UserAgent)
+	result := utils.Enc(pa, da, c.UserAgent)
 	return result, nil
 }

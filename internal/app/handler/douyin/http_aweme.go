@@ -9,10 +9,10 @@ import (
 
 // AwemeDetailHandler 获取抖音作品详情
 // @Summary 获取抖音作品详情
-// @Description 通过 aweme_id 获取作品详情
+// @Description 通过 awemeId 获取作品详情
 // @Tags douyin
 // @Produce json
-// @Param aweme_id query string true "作品ID"
+// @Param awemeId query string true "作品ID"
 // @Success 200 {object} map[string]interface{} "返回原始JSON"
 // @Router /api/douyin/aweme/detail [get]
 func AwemeDetailHandler(c *gin.Context) {
@@ -28,16 +28,14 @@ func AwemeDetailHandler(c *gin.Context) {
 		response.HandleDefault(c, response.WithData(res))(&err, recover())
 	}()
 
-	if err = c.ShouldBindJSON(&req); err != nil {
+	if err = c.ShouldBind(&req); err != nil {
 		return
 	}
 	req.Adjust()
 
 	client := douyin2.NewDouyinClient("")
-	body, err := client.DouyinAwemeDetail(ctx, req.AwemeId)
+	res, err = client.DouyinAwemeDetail(ctx, req.AwemeId)
 	if err != nil {
-		response.HandleDefault(c)(&err, nil)
 		return
 	}
-	response.Success(c, gin.H{"raw": body})
 }

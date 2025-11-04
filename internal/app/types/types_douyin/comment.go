@@ -22,8 +22,8 @@ func (r *CommentListReq) Adjust() {
 // CommentReplyListReq 抖音评论回复列表请求参数
 type CommentReplyListReq struct {
 	types_common.BaseListParam
-	ItemId    string `form:"item_id" binding:"required"`
-	CommentId string `form:"comment_id" binding:"required"`
+	ItemId    string `form:"itemId" binding:"required"`
+	CommentId string `form:"commentId" binding:"required"`
 	Cursor    string `form:"cursor"`
 	Count     string `form:"count"`
 }
