@@ -1,0 +1,11 @@
+temp/
+test/
+config.yaml
+go_build_jz_scraw.exe
+main.exe
+spider.exe
+main
+spider
+cache
+docs
+.idea
