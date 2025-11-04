@@ -87,7 +87,6 @@ func RunInfo() {
 	logger.Logger.Info("项目启动成功")
 	logger.Logger.Info(fmt.Sprintf("项目启动成功，后台地址   : %s", goUrl))
 	logger.Logger.Info(fmt.Sprintf("项目启动成功，swag地址为 : %s", swaggerURL))
-
 }
 
 func GetLocalIP() string {

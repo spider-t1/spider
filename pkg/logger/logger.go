@@ -154,17 +154,12 @@ func getConsoleEncoder() zapcore.Encoder {
 	return zapcore.NewConsoleEncoder(encoderConfig)
 }
 
-//func getEncoder() zapcore.Encoder {
-//	cfg := zap.NewProductionEncoderConfig()
-//	cfg.EncodeTime = zapcore.ISO8601TimeEncoder
-//	cfg.EncodeLevel = zapcore.CapitalLevelEncoder
-//	cfg.EncodeCaller = zapcore.ShortCallerEncoder
-//	return zapcore.NewJSONEncoder(cfg)
-//}
-
 // InfoWithContext 带请求ID的便利日志函数
 func InfoWithContext(ctx context.Context, msg string, fields ...zap.Field) {
 	requestID := metadata.GetRequestId(ctx)
+	if len(fields) == 0 {
+		fields = append(fields, zap.String("api", "logic"))
+	}
 	if requestID != "" {
 		fields = append(fields, zap.String("request_id", requestID))
 		fields = append(fields, zap.String("msg", msg))

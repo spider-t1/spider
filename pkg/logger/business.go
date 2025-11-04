@@ -58,7 +58,7 @@ func LogAccess(ctx context.Context, event AccessEvent) {
 
 	// 记录日志
 	//message := "access: " + event.Method + " " + event.Path
-	Logger.Info("", fields...)
+	InfoWithContext(ctx, "", fields...)
 }
 
 // LogSlow 记录慢请求日志
