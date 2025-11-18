@@ -1,0 +1,34 @@
+package buyin
+
+import "testing"
+
+func TestTalentSaleAnaly(t *testing.T) {
+	//config := ClientConfig{
+	//	Cookie:    "qc_tt_tag=0; is_staff_user=false; __security_mc_1_s_sdk_crypt_sdk=a98483d8-4be8-a9c8; bd_ticket_guard_client_web_domain=2; bd_ticket_guard_client_data=eyJiZC10aWNrZXQtZ3VhcmQtdmVyc2lvbiI6MiwiYmQtdGlja2V0LWd1YXJkLWl0ZXJhdGlvbi12ZXJzaW9uIjoxLCJiZC10aWNrZXQtZ3VhcmQtcmVlLXB1YmxpYy1rZXkiOiJCQWtlMTg3Q3hjKy9nY0hJN1V3M0ZtaXQzMEhiNnJZYXBCeXQzblUwdENubGxHaVZkMndNc2pkdTMwV2w4SGMxRHNZZHA2aUJxekQ4aXZmeCtYR2cyaDA9IiwiYmQtdGlja2V0LWd1YXJkLXdlYi12ZXJzaW9uIjoyfQ%3D%3D; s_v_web_id=verify_mfytk681_4DjIc3ii_nHhc_42l4_8pnp_Fsbpzk3XsVg9; passport_csrf_token=bf94b57109d8402a1f0b75a104bcab39; passport_csrf_token_default=bf94b57109d8402a1f0b75a104bcab39; bd_ticket_guard_server_data=eyJ0aWNrZXQiOiJoYXNoLlVWTEhRcFpDQU0rZktmaWVrWHE2QlUzQWw1Z1hBVmxhdUZIdmFsWE9ydlE9IiwidHNfc2lnbiI6InRzLjIuNjdjNjY5ZGEzZGI0YzJiYmIxZGE1MWZiOGQxN2MzYmFmNzk4ZTE4OGE3ODhlZjc1ZmNjZTkyODNlMDA3MjlhZmM0ZmJlODdkMjMxOWNmMDUzMTg2MjRjZWRhMTQ5MTFjYTQwNmRlZGJlYmVkZGIyZTMwZmNlOGQ0ZmEwMjU3NWQiLCJjbGllbnRfY2VydCI6InB1Yi5CQWtlMTg3Q3hjKy9nY0hJN1V3M0ZtaXQzMEhiNnJZYXBCeXQzblUwdENubGxHaVZkMndNc2pkdTMwV2w4SGMxRHNZZHA2aUJxekQ4aXZmeCtYR2cyaDA9IiwibG9nX2lkIjoiMjAyNTEwMTUxMTM4MDUzNjA2MUZFMUI0MjA5QkIzNEUyNCIsImNyZWF0ZV90aW1lIjoxNzYwNDk5NDg2fQ%3D%3D; bd_ticket_guard_web_domain=3; passport_mfa_token=CjaJktqh2NRokS%2B5eH2cJhRDb3oT8YuX7AiGaVMBHTHk9OC%2FegQWwdT%2FNmDm3XAg7COCToK%2F%2BjwaSgo8AAAAAAAAAAAAAE%2BYppJ7O7diowKrunZGM7lsd40DHk1i72SbN6nd86Mmc74U%2B0%2Bpx4utPJF1PMAvjZ4vEJfu%2Fg0Y9rHRbCACIgEDlCKVHw%3D%3D; odin_tt=f5ade0b0f57e4ac3fc4a3b160738c4beb2500b3c028b5fce8e04de09aa53f46169e4a718c284bd34b5a90005e0582443ef69cecea93c64c0d7435501eb2f389a; passport_auth_status=3d54bd69561b68ec36e84ddf07522566%2Ca8942dcb4a7d91335259f4d181c12cf8; passport_auth_status_ss=3d54bd69561b68ec36e84ddf07522566%2Ca8942dcb4a7d91335259f4d181c12cf8; uid_tt=7c338817748c7f615e0626a483e51c37; uid_tt_ss=7c338817748c7f615e0626a483e51c37; sid_tt=ae3936a51f19231f0670111188eb321d; sessionid=ae3936a51f19231f0670111188eb321d; sessionid_ss=ae3936a51f19231f0670111188eb321d; buyin_shop_type=11; buyin_shop_type_v2=11; buyin_account_child_type_v2=1; buyin_app_id_v2=13; buyin_account_child_type=1; buyin_app_id=13; COMPASS_LUOPAN_DT=session_7563923318974447911; ucas_c0=CkAKBTEuMC4wELKIjfjFrKb8aBjmJiCU8YC46ozoBiiwITDUs6D3gKwMQOey4scGSOfmnsoGUKq8oabq4YPzaFhvEhTBcELR6vPx1xZLcJPt31nR3eLarw; ucas_c0_ss=CkAKBTEuMC4wELKIjfjFrKb8aBjmJiCU8YC46ozoBiiwITDUs6D3gKwMQOey4scGSOfmnsoGUKq8oabq4YPzaFhvEhTBcELR6vPx1xZLcJPt31nR3eLarw; PHPSESSID=a46b228538c2a64d1f4279246200e7a6; PHPSESSID_SS=a46b228538c2a64d1f4279246200e7a6; Hm_lvt_b6520b076191ab4b36812da4c90f7a5e=1760499770,1761122709; HMACCOUNT=F38274C5C42977AB; ucas_c0_buyin=CkAKBTEuMC4wEKSIhMK_tqb8aBjmJiCU8YC46ozoBiiwITDUs6D3gKwMQLiz4scGSLjnnsoGUKq8oabq4YPzaFhvEhT4HeC1W9v1DotH3smmAEK9CoMM3Q; ucas_c0_ss_buyin=CkAKBTEuMC4wEKSIhMK_tqb8aBjmJiCU8YC46ozoBiiwITDUs6D3gKwMQLiz4scGSLjnnsoGUKq8oabq4YPzaFhvEhT4HeC1W9v1DotH3smmAEK9CoMM3Q; sid_guard=ae3936a51f19231f0670111188eb321d%7C1761122744%7C5184000%7CSun%2C+21-Dec-2025+08%3A45%3A44+GMT; session_tlb_tag=sttt%7C3%7Crjk2pR8ZIx8GcBERiOsyHf_________8-TSG-zQre321WCrXtTU9DLOCKy_37Wb711Ni54crX7Y%3D; sid_ucp_v1=1.0.0-KGYzZmY3ZTk1YmM0MzU1OTgzNGVhMzM1NmI5ZTg3MzEwMTA3ZWMyNTgKGgjUs6D3gKwMELiz4scGGLAhIAw4AkDxB0gEGgJobCIgYWUzOTM2YTUxZjE5MjMxZjA2NzAxMTExODhlYjMyMWQ; ssid_ucp_v1=1.0.0-KGYzZmY3ZTk1YmM0MzU1OTgzNGVhMzM1NmI5ZTg3MzEwMTA3ZWMyNTgKGgjUs6D3gKwMELiz4scGSLjnnsoGUKq8oabq4YPzaFhvEhTBcELR6vPx1xZLcJPt31nR3eLarw; SASID=SID2_7563963134651646271; BUYIN_SASID=SID2_7563963134651646271; _tea_utm_cache_3813=undefined; scmVer=1.0.1.9427; csrf_session_id=a6d0b2f712f9453239dc34e8c9d474bd; ttwid=1%7CV1_8jklV7JQ20ejEh5FkWqazqnXNAtRBni_T7Mwjp4w%7C1761202778%7C224bdf41af3f67ded8270e4a040a7e00edb18d6f6c040c951333025136370f73; gfkadpd=2631,22740; Hm_lpvt_b6520b076191ab4b36812da4c90f7a5e=1761274422",
+	//	EWID:      "ae3390605f3dfe70921708a03390b7b1",
+	//	VerifyFp:  "verify_mfytk681_4DjIc3ii_nHhc_42l4_8pnp_Fsbpzk3XsVg9",
+	//	Fp:        "verify_mfytk681_4DjIc3ii_nHhc_42l4_8pnp_Fsbpzk3XsVg9",
+	//	MsToken:   "dMPQR4Mym3DOrto-mtrQzIKJr6OupTRyRmapVUl6JTMZHxLi_CSVhLloUkhtRS0DuZt8dKUz8tzJWXx4HFowkmlEPtcafNfVCcFwjkUjMEvLjDHLyljDBAFSMFlHnhPqH-LFtOePXZ5fbm41HfwEsMLh_kXzdoakx79qKiDcybI9Jw==",
+	//	UserAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0",
+	//}
+	//
+	//// 根据原始 talent_sale_analy.go 中的参数构建 TalentSaleAnalyParams
+	//params := TalentSaleAnalyzeParams{
+	//	//EWID:     "ae3390605f3dfe70921708a03390b7b1",
+	//	UID:   "v2_0a27bf94e321655b7761f869ced6f9d1b50ee85618758deee6eba246d02f86f0e190b1d198728693e81a4b0a3c000000000000000000004fa12d2530d846f60de7c0f982aca22525a7ea4cd66f9a4a3c5b959543a865778153d888a1fe3d29f48662c8681cce5f5b9b1085d4ff0d18e5ade4c90120012201036d2c3fcc",
+	//	Range: "30d",
+	//	//VerifyFp: "verify_mfytk681_4DjIc3ii_nHhc_42l4_8pnp_Fsbpzk3XsVg9",
+	//	//Fp:       "verify_mfytk681_4DjIc3ii_nHhc_42l4_8pnp_Fsbpzk3XsVg9",
+	//	//MsToken:  "dMPQR4Mym3DOrto-mtrQzIKJr6OupTRyRmapVUl6JTMZHxLi_CSVhLloUkhtRS0DuZt8dKUz8tzJWXx4HFowkmlEPtcafNfVCcFwjkUjMEvLjDHLyljDBAFSMFlHnhPqH-LFtOePXZ5fbm41HfwEsMLh_kXzdoakx79qKiDcybI9Jw==",
+	//}
+	//
+	//client := NewJXClient(config)
+	//response, status, err := client.TalentSaleAnaly(params)
+	//
+	//if err != nil {
+	//	t.Fatalf("TalentSaleAnaly failed: %v", err)
+	//}
+	//
+	//t.Logf("Status: %s", status)
+	//t.Logf("Response: %s", response)
+}
