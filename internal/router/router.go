@@ -7,6 +7,7 @@ import (
     _ "spider/docs" // main 文件中导入 docs 包
     "spider/internal/config"
     "spider/internal/middleware"
+    "spider/internal/router/buyin"
     "spider/internal/router/douyin"
     "time"
 )
@@ -15,10 +16,11 @@ func InitRouter(r *gin.Engine) {
 
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
-	UseMiddleware(r)
+    UseMiddleware(r)
 
     // 注册抖音相关路由
     douyin.InitDouyinRoute(r)
+    buyin.InitBuyinRoute(r)
 }
 
 func UseMiddleware(r *gin.Engine) {
